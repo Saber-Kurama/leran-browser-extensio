@@ -62,3 +62,73 @@ Note that the badge has limited space, and should typically use four characters 
 
 
 #### Popup
+
+```
+manifest.json
+{
+    "action": {
+        "default_popup": 'popup.html',
+    }
+}
+```
+
+`action.setPopup()` 动态更新指向不同相对路径
+
+#### Per-tab state 每个标签状态
+
+```
+function getTabId() { /* ... */}
+function getTabBadge() { /* ... */}
+
+chrome.action.setBadgeText(
+  {
+    text: getTabBadge(tabId),
+    tabId: getTabId(),
+  },
+  () => { ... }
+);
+```
+
+#### Enabled state
+
+`action.enable()` 和 `action.disable()`
+这仅影响是否将弹出窗口（如果有）或action.onClicked事件分派到您的扩展程序；它不会影响操作在工具栏中的存在。
+
+#### 类型
+
+##### 标签详情
+
+##### 标签ID tableId
+
+#### 用户设置
+
+isOnToolbar 扩展程序的操作图标是否在浏览器窗口的顶级工具栏上可见（即扩展程序是否已被用户“固定”）
+
+#### 方法
+
+chrome.action.disable
+
+chrome.action.enable
+
+获取徽章背景颜色
+
+获取徽章文本
+
+弹出窗口
+
+获取标题
+
+获取用户设置
+
+设置徽章背景颜色
+
+```
+chrome.action.onClicked.addListener(
+  callback: function,
+)
+```
+
+<!-- TODO： -->
+遗留问题
+
+setBadgeBackgroundColor 并没有效果
