@@ -8,6 +8,7 @@
   },
   "permissions": ["storage", "activeTab", "scripting"],
   "action": {
+    "default_title": "这个是一个测试",
     "default_popup": "popup.html",
     "default_icon": {
       "16": "/images/get_started16.png",
